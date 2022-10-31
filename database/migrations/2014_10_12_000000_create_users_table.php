@@ -22,9 +22,13 @@ return new class extends Migration
             $table->string('google_id');
             $table->string('cpf')->nullable();
             $table->string('rg')->nullable();
-            $table->string('matriculation')->nullable();
-            $table->integer('first_phone')->nullable();
-            $table->integer('second_phone')->nullable();
+            $table->string('registration_number')->nullable();
+            $table->string('first_phone')->nullable();
+            $table->string('second_phone')->nullable();
+            $table->string('professor_adviser')->nullable();
+            $table->string('course')->nullable();
+            $table->string('project_research_area')->nullable();
+            $table->boolean('scholarship')->default(false);
             $table->foreignId('current_team_id')->nullable();
             $table->string('avatar', 2048)->nullable();
             $table->boolean('active')->default(true);

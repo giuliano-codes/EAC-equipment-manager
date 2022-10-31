@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Actions\Jetstream\AddTeamMember;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -26,7 +27,22 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'name', 'email', 'google_id', 'avatar',
+        'name',
+        'email',
+        'alternative_email',
+        'google_id',
+        'cpf',
+        'rg',
+        'registration_number',
+        'first_phone',
+        'second_phone',
+        'professor_adviser',
+        'course',
+        'project_research_area',
+        'scholarship',
+        'avatar',
+        'active',
+        'accept_terms_and_privacy_policy'
     ];
 
     /**
@@ -55,4 +71,9 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function setTeam($team)
+    {
+        (new AddTeamMember)->add($this, $team, $this->email, 'editor');
+    }
 }

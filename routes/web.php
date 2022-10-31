@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\GoogleLoginController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -41,6 +43,25 @@ Route::middleware([
     })->name('home');
 });
 
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+    'accept.terms'
+])->controller(BookingController::class)->group(function () {
+    Route::get('/booking', 'index')->name('booking.index');
+    Route::get('/booking/create', 'create')->name('booking.create');
+});
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+    'accept.terms'
+])->controller(EquipmentController::class)->group(function () {
+    Route::get('/equipment', 'index')->name('equipment.index');
+    Route::get('/equipment/create', 'create')->name('equipment.create');
+});
 
 Route::middleware([
     'auth:sanctum',
@@ -48,6 +69,10 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/accept-terms', function () {
-        return view('accept-terms');
+        if (auth()->user()->accept_terms_and_privacy_policy) {
+            return redirect()->route('home');
+        } else {
+            return view('accept-terms');
+        }
     })->name('accept-terms');
 });

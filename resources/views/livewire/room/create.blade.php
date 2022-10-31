@@ -18,7 +18,7 @@
             <textarea class="w-full rounded-xl" rows="3"></textarea>
         </div>
         <div class="grid mb-3">
-            <button class="focus:outline-none text-green-600 text-sm py-2.5 px-5 border border-green-600 hover:bg-green-50 w-full mt-4" type="submit">Adicionar Novo Equipamento</button>
+            <button class="focus:outline-none text-green-600 text-sm py-2.5 px-5 border border-green-600 hover:bg-green-50 w-full mt-4" type="submit">Adicionar Sala</button>
         </div>
     </form>
 </div>
