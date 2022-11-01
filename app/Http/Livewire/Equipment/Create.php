@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Equipment;
 
+use App\Models\Equipment;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -18,9 +19,13 @@ class Create extends Component
         return view('livewire.equipment.create');
     }
 
-    public function submit()
+    public function validateEquipment()
     {
-        dd($this->equipment);
+        $this->equipment['useful_links'] = $this->formatUsefulLinks($this->equipment['useful_links']);
+
+        Equipment::create($this->equipment);
+
+        return redirect()->route('equipment.index');
     }
 
     public function importCSV()
@@ -31,9 +36,35 @@ class Create extends Component
         $header = fgetcsv($handle, 0, ",");
 
         while (($line = fgetcsv($handle, 0, ",")) !== false) {
-			$csvData[] = $line;
+			Equipment::create([
+                'name' => $line[0],
+                'model' => $line[1],
+                'serie_number' => $line[2],
+                'manufacturer' => $line[7],
+                'ufsm_code' => $line[3],
+                'laboratory_code' => $line[4],
+                'ncm_code' => $line[6],
+                'locker' => $line[5],
+                'manual_link' => $line[8],
+                'resources' => $line[10],
+                'additional_information' => $line[9],
+                'observation' => $line[11],
+            ]);
 		}
 
-        return [$header, $csvData];
+        return redirect()->route('equipment.index');
+    }
+
+    private function formatUsefulLinks($data){
+        $formated_links = array();
+
+        $lines = explode(PHP_EOL, $this->equipment['useful_links']);
+
+        foreach ($lines as $line) {
+            list($key, $data) = explode(',', $line);
+            $formated_links[trim($key)] = trim($data);
+        }
+
+        return $formated_links;
     }
 }

@@ -14,7 +14,10 @@
                 </div>
             </a>
         </div>
-
-        
+        @if(session('error'))
+            <div class="text-center w-full bg-red-500 rounded my-2">
+                <p class="text-white">{{ session('error') }}</p>
+            </div>
+        @endif        
     </x-jet-authentication-card>
 </x-guest-layout>

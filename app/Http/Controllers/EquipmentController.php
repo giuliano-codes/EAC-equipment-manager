@@ -47,7 +47,7 @@ class EquipmentController extends Controller
      */
     public function show(Equipment $equipment)
     {
-        //
+        return view('equipment.show', ['equipment' => $equipment]);
     }
 
     /**
@@ -58,7 +58,7 @@ class EquipmentController extends Controller
      */
     public function edit(Equipment $equipment)
     {
-        //
+        return view('equipment.edit', ['equipment' => $equipment]);
     }
 
     /**

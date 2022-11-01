@@ -46,5 +46,7 @@ class AcceptTerms extends Component
         if (!$team->hasUser($authUser)) {
             $authUser->setTeam($team);
         }
+
+        redirect()->route('home');
     }
 }

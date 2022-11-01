@@ -24,7 +24,11 @@ class GoogleLoginController extends Controller
             $user = User::where('google_id', $googleUser->id)->first();
 
             if ($user) {
-                Auth::login($user);
+                if ($user->active) {
+                    Auth::login($user);
+                } else {
+                   return redirect()->route('login')->with('error', 'Seu usuário não tem permissão para acessar o sistema.');
+                }
             } else {
                 $newUser = (new CreateNewUser)->create(
                     array(
@@ -40,7 +44,6 @@ class GoogleLoginController extends Controller
             return redirect()->route('home');
 
         } catch (Exception $e) {
-            dd($e);
         }        
     }
 }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\GoogleLoginController;
+use App\Http\Controllers\RoomController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -61,6 +62,18 @@ Route::middleware([
 ])->controller(EquipmentController::class)->group(function () {
     Route::get('/equipment', 'index')->name('equipment.index');
     Route::get('/equipment/create', 'create')->name('equipment.create');
+    Route::get('/equipment/{equipment}/', 'show')->name('equipment.show');
+    Route::get('/equipment/{equipment}/edit', 'edit')->name('equipment.edit');
+});
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+    'accept.terms'
+])->controller(RoomController::class)->group(function () {
+    Route::get('/room', 'index')->name('room.index');
+    Route::get('/room/create', 'create')->name('room.create');
 });
 
 Route::middleware([

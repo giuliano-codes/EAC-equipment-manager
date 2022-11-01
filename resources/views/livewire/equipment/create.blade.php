@@ -2,7 +2,7 @@
     <div class="grid justify-center mb-8 text-lg font-bold">
         <span>Cadastro de Equipamento</span>
     </div>
-    <form wire:submit.prevent="submit">
+    <form wire:submit.prevent="validateEquipment">
         <div class="grid grid-cols-4 gap-2">
             <div>
                 <label class="font-semibold">Nome</label>
@@ -43,8 +43,8 @@
             <div>
                 <label class="font-semibold">Tipo</label>
                 <select class="w-full rounded-xl" wire:model="equipment.type">
-                    <option value="">Físico</option>
-                    <option value="">Software</option>
+                    <option value="physical">Físico</option>
+                    <option value="software">Software</option>
                 </select>
             </div>
         </div>

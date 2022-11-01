@@ -7,6 +7,8 @@ use Livewire\Component;
 
 class Index extends Component
 {
+    public $equipments;
+    
     public function render()
     {
         return view('livewire.equipment.index');
@@ -14,13 +16,13 @@ class Index extends Component
 
     public function mount()
     {
-        
+        $this->equipments = $this->getAllEquipments();
     }
 
     public function getAllEquipments()
     {
         $equipments = Equipment::all();
-
-        dd($equipments);
+        
+        return $equipments;
     }
 }
