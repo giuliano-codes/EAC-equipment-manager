@@ -21,7 +21,7 @@ class Index extends Component
 
     public function getAllEquipments()
     {
-        $equipments = Equipment::all();
+        $equipments = Equipment::orderBy('name')->get();
         
         return $equipments;
     }

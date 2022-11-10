@@ -57,9 +57,13 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                         <a href="{{ route('equipment.show', ['equipment' => $equipment]) }}" class="text-blue-500">Ver</a>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        <a href="{{ route('equipment.edit', ['equipment' => $equipment]) }}" class="text-yellow-500">Editar</a>
-                                    </td>
+                                    @can('update', $equipment)
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            <a href="{{ route('equipment.edit', ['equipment' => $equipment]) }}" class="text-yellow-500">Editar</a>
+                                        </td>
+                                    @else
+                                        <td></td>
+                                    @endcan
                                 </tr>
                             @endforeach
                         </tbody>

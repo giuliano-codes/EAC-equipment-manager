@@ -41,7 +41,11 @@ class EquipmentPolicy
      */
     public function create(User $user)
     {
-        //
+        if (($user->currentTeam->name == "Admin") && ($user->currentTeam->personal_team == false)) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -53,7 +57,11 @@ class EquipmentPolicy
      */
     public function update(User $user, Equipment $equipment)
     {
-        //
+        if (($user->currentTeam->name == "Admin") && ($user->currentTeam->personal_team == false)) {
+            return true;
+        }
+
+        return false;
     }
 
     /**

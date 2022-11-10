@@ -27,4 +27,13 @@ class Equipment extends Model
         'image',
         'active'
     ];
+
+    protected $casts = [
+        'useful_links' => 'array'
+    ];
+
+    public function bookings()
+    {
+        return $this->belongsToMany(Booking::class, 'booking_equipment', 'equipment_id', 'booking_id');
+    }
 }

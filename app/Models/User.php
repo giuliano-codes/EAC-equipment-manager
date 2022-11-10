@@ -42,7 +42,8 @@ class User extends Authenticatable
         'scholarship',
         'avatar',
         'active',
-        'accept_terms_and_privacy_policy'
+        'accept_terms_and_privacy_policy',
+        'status'
     ];
 
     /**

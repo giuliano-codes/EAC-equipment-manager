@@ -21,7 +21,7 @@ class Create extends Component
 
     public function validateEquipment()
     {
-        $this->equipment['useful_links'] = $this->formatUsefulLinks($this->equipment['useful_links']);
+        $this->equipment['useful_links'] = $this->formatUsefulLinks();
 
         Equipment::create($this->equipment);
 
@@ -55,7 +55,8 @@ class Create extends Component
         return redirect()->route('equipment.index');
     }
 
-    private function formatUsefulLinks($data){
+    private function formatUsefulLinks()
+    {
         $formated_links = array();
 
         $lines = explode(PHP_EOL, $this->equipment['useful_links']);

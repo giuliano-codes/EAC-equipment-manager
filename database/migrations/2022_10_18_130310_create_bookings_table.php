@@ -20,6 +20,7 @@ return new class extends Migration
             $table->foreignId('room_id')->nullable();
             $table->timestamp('start_date');
             $table->timestamp('end_date');
+            $table->string('status');
         });
     }
 

@@ -25,4 +25,14 @@ class Index extends Component
 
         return $users;
     }
+
+    public function changeUserStatus($userId)
+    {
+        $status = (boolean) User::find($userId)->active;
+        $newStatus = !$status;
+
+        User::find($userId)->update(['active' => $newStatus]);
+
+        $this->usersList = $this->getAllUsers();
+    }
 }

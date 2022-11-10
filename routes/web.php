@@ -52,6 +52,7 @@ Route::middleware([
 ])->controller(BookingController::class)->group(function () {
     Route::get('/booking', 'index')->name('booking.index');
     Route::get('/booking/create', 'create')->name('booking.create');
+    Route::get('/booking/{booking}/', 'show')->name('booking.show');
 });
 
 Route::middleware([
@@ -61,9 +62,9 @@ Route::middleware([
     'accept.terms'
 ])->controller(EquipmentController::class)->group(function () {
     Route::get('/equipment', 'index')->name('equipment.index');
-    Route::get('/equipment/create', 'create')->name('equipment.create');
+    Route::get('/equipment/create', 'create')->name('equipment.create')->can('create','App\Models\Equipment');
     Route::get('/equipment/{equipment}/', 'show')->name('equipment.show');
-    Route::get('/equipment/{equipment}/edit', 'edit')->name('equipment.edit');
+    Route::get('/equipment/{equipment}/edit', 'edit')->name('equipment.edit')->can('update', 'equipment');
 });
 
 Route::middleware([
