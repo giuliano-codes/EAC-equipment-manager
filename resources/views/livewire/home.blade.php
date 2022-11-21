@@ -24,7 +24,7 @@
                     <p class="text-white text-center"><span class="font-bold">Ret:</span>{{ $confirmedBooking['start_date'] }}</p>
                     <p class="text-white text-center"><span class="font-bold">Dev:</span>{{ $confirmedBooking['end_date'] }}</p>
                     <div class="grid">
-                        <button class="bg-blue-500 p-2 rounded-xl text-white font-bold my-4">
+                        <button class="bg-blue-500 p-2 rounded-xl text-white font-bold my-4" type="button" wire:click="finishBooking({{ $confirmedBooking['id'] }})">
                             MARCAR COMO DEVOLVIDO
                         </button>
                     </div>
@@ -52,16 +52,16 @@
                     <p class="text-white text-center"><span class="font-bold">Dev:</span>{{ $bookingWaitingConfirmation['end_date'] }}</p>
                     @if($bookingWaitingConfirmation['can_confirm'])
                         <div class="grid grid-cols-2 gap-2">
-                            <button class="bg-blue-500 p-2 rounded-xl text-white font-bold my-2">
+                            <button class="bg-blue-500 p-2 rounded-xl text-white font-bold my-2" type="button" wire:click="confirmBooking({{ $bookingWaitingConfirmation['id'] }})">
                                 CONFIRMAR
                             </button>
-                            <button class="bg-red-500 p-2 rounded-xl text-white font-bold my-2">
+                            <button class="bg-red-500 p-2 rounded-xl text-white font-bold my-2" type="button" wire:click="cancelBooking({{ $bookingWaitingConfirmation['id'] }})">
                                 CANCELAR
                             </button>
                         </div>
                     @else
                         <div class="grid">
-                            <button class="bg-red-500 p-2 rounded-xl text-white font-bold my-2">
+                            <button class="bg-red-500 p-2 rounded-xl text-white font-bold my-2" type="button" wire:click="cancelBooking({{ $bookingWaitingConfirmation['id'] }})">
                                 CANCELAR
                             </button>
                         </div>

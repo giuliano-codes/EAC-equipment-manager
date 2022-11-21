@@ -57,7 +57,11 @@ class TeamPolicy
      */
     public function update(User $user, Team $team)
     {
-        return $user->ownsTeam($team);
+        if ($user->email == 'giuliano.arnhold@eac.ufsm.br') {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -69,7 +73,11 @@ class TeamPolicy
      */
     public function addTeamMember(User $user, Team $team)
     {
-        return true;
+        if ($user->email == 'giuliano.arnhold@eac.ufsm.br') {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -81,7 +89,11 @@ class TeamPolicy
      */
     public function updateTeamMember(User $user, Team $team)
     {
-        return $user->ownsTeam($team);
+        if ($user->email == 'giuliano.arnhold@eac.ufsm.br') {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -93,7 +105,11 @@ class TeamPolicy
      */
     public function removeTeamMember(User $user, Team $team)
     {
-        return $user->ownsTeam($team);
+        if ($user->email == 'giuliano.arnhold@eac.ufsm.br') {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -105,6 +121,10 @@ class TeamPolicy
      */
     public function delete(User $user, Team $team)
     {
-        return $user->ownsTeam($team);
+        if ($user->email == 'giuliano.arnhold@eac.ufsm.br') {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

@@ -17,8 +17,7 @@ class Home extends Component
 
     public function mount()
     {
-        $this->bookings['waiting_confirmation'] = $this->bookingsWaitingConfirmation();
-        $this->bookings['confirmed'] = $this->bookingsConfirmed();
+        $this->updateBookingData();
     }
 
     public function bookingsWaitingConfirmation()
@@ -62,5 +61,38 @@ class Home extends Component
         }
 
         return $bookings;
+    }
+
+    public function updateBookingData()
+    {
+        $this->bookings['waiting_confirmation'] = $this->bookingsWaitingConfirmation();
+        $this->bookings['confirmed'] = $this->bookingsConfirmed();
+    }
+
+    public function cancelBooking($id)
+    {
+        $booking = Booking::find($id);
+
+        $booking->delete();
+
+        $this->updateBookingData();
+    }
+
+    public function confirmBooking($id)
+    {
+        $booking = Booking::find($id);
+
+        $booking->update(['status' => 'confirmed']);
+
+        $this->updateBookingData();
+    }
+
+    public function finishBooking($id)
+    {
+        $booking = Booking::find($id);
+
+        $booking->update(['status' => 'finished']);
+
+        $this->updateBookingData();
     }
 }

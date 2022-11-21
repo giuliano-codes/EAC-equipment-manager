@@ -99,13 +99,13 @@ class Create extends Component
         $bookings = $equipment->bookings;
 
         foreach ($bookings as $booking) {
-            if ($startDate < $booking->start_date && $endDate > $booking->start_date) {
+            if ($startDate < $booking->start_date && $endDate > $booking->start_date && $booking->status != 'finished') {
                 return false;
-            } elseif ($startDate >= $booking->start_date && $endDate <= $booking->end_date) {
+            } elseif ($startDate >= $booking->start_date && $endDate <= $booking->end_date && $booking->status != 'finished') {
                 return false;
-            } elseif ($startDate > $booking->start_date && $startDate < $booking->end_date) {
+            } elseif ($startDate > $booking->start_date && $startDate < $booking->end_date && $booking->status != 'finished') {
                 return false;
-            } elseif ($startDate < $booking->start_date && $endDate > $booking->end_date) {
+            } elseif ($startDate < $booking->start_date && $endDate > $booking->end_date && $booking->status != 'finished') {
                 return false;
             } else {
                 return true;
@@ -125,13 +125,13 @@ class Create extends Component
         $bookings = $room->bookings;
 
         foreach ($bookings as $booking) {
-            if ($startDate < $booking->start_date && $endDate > $booking->start_date) {
+            if ($startDate < $booking->start_date && $endDate > $booking->start_date && $booking->status != 'finished') {
                 return false;
-            } elseif ($startDate >= $booking->start_date && $endDate <= $booking->end_date) {
+            } elseif ($startDate >= $booking->start_date && $endDate <= $booking->end_date && $booking->status != 'finished') {
                 return false;
-            } elseif ($startDate > $booking->start_date && $startDate < $booking->end_date) {
+            } elseif ($startDate > $booking->start_date && $startDate < $booking->end_date && $booking->status != 'finished') {
                 return false;
-            } elseif ($startDate < $booking->start_date && $endDate > $booking->end_date) {
+            } elseif ($startDate < $booking->start_date && $endDate > $booking->end_date && $booking->status != 'finished') {
                 return false;
             } else {
                 return true;

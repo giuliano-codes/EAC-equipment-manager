@@ -65,9 +65,9 @@ class BookingPolicy
      */
     public function delete(User $user, Booking $booking)
     {
-        if (($user->currentTeam->name == "Admin") && ($user->currentTeam->personal_team == false)) {
+        if (($user->currentTeam->name == "Admin" || $user->currentTeam->name == "Docente") && ($user->currentTeam->personal_team == false) && ($booking->status != 'finished')) {
             return true;
-        } elseif ($booking->user->id == $user->id) {
+        } elseif ($booking->user->id == $user->id && $booking->status != 'finished') {
             return true;
         } else {
             return false;

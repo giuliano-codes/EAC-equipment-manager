@@ -26,7 +26,7 @@
             <div class="grid my-8">
                 <p class="text-center font-bold">Equipamentos</p>
                 @foreach($booking['equipments'] as $equipment)
-                    <p class="text-center">{{ $equipment['name'] }} - {{ $equipment['model'] }} - {{ $equipment['serie_number'] }}</p>
+                    <a href="{{ route('equipment.show', ['equipment' => $equipment['id']]) }}" class="text-center text-blue-500" target="_blank" rel="noopener noreferrer">{{ $equipment['name'] }} - {{ $equipment['model'] }} - {{ $equipment['serie_number'] }}</a>
                 @endforeach
             </div>
             @can('delete', $booking)

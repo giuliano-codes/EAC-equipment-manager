@@ -21,7 +21,7 @@ class Index extends Component
 
     public function getAllBookings()
     {
-        $bookings = Booking::orderBy('created_at')->get();
+        $bookings = Booking::orderBy('start_date')->get();
         
         return $bookings;
     }
