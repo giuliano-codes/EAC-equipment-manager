@@ -29,7 +29,7 @@ class Home extends Component
             $startDate = Carbon::parse($booking['start_date']);
             $endDate = Carbon::parse($booking['end_date']);
             $now = Carbon::now()->subHour(3);
-            if ($now->diffInDays($startDate) <= 1) {
+            if ($now->diffInHours($startDate) <= 12) {
                 $bookings[$key]['can_confirm'] = true;
             } else {
                 $bookings[$key]['can_confirm'] = false;

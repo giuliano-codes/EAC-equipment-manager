@@ -38,60 +38,36 @@
         </p>
         
         <div class="grid grid-cols-4 gap-4">
-            <div class="bg-yellow-400 rounded py-4 px-2">
-                <div class="flex flex-row items-center bg-white p-2 rounded mb-4">
-                    <img class="rounded-full w-16" src="{{ auth()->user()->avatar }}" alt="" referrerpolicy="no-referrer">
-                    <p class="grow text-center text-black font-bold">Giuliano Arnhold</p>
+            @foreach($bookings['waiting_confirmation'] as $bookingWaitingConfirmation)
+                <div class="rounded py-4 px-2 {{ $bookingWaitingConfirmation['can_confirm'] == true ? 'bg-yellow-400' : 'bg-purple-400' }}">
+                    <div class="flex flex-row items-center bg-white p-2 rounded mb-4">
+                        <img class="rounded-full w-16" src="{{ $bookingWaitingConfirmation['user']['avatar'] }}" alt="" referrerpolicy="no-referrer">
+                        <p class="grow text-center text-black font-bold">{{ $bookingWaitingConfirmation['user']['name'] }}</p>
+                    </div>
+                    @foreach($bookingWaitingConfirmation['equipments'] as $equipment)
+                        <p class="text-white text-center font-bold">{{ $equipment['name'] }}</p>
+                    @endforeach
+                    <hr class="my-4">
+                    <p class="text-white text-center"><span class="font-bold">Ret:</span>{{ $bookingWaitingConfirmation['start_date'] }}</p>
+                    <p class="text-white text-center"><span class="font-bold">Dev:</span>{{ $bookingWaitingConfirmation['end_date'] }}</p>
+                    @if($bookingWaitingConfirmation['can_confirm'])
+                        <div class="grid grid-cols-2 gap-2">
+                            <button class="bg-blue-500 p-2 rounded-xl text-white font-bold my-2">
+                                CONFIRMAR
+                            </button>
+                            <button class="bg-red-500 p-2 rounded-xl text-white font-bold my-2">
+                                CANCELAR
+                            </button>
+                        </div>
+                    @else
+                        <div class="grid">
+                            <button class="bg-red-500 p-2 rounded-xl text-white font-bold my-2">
+                                CANCELAR
+                            </button>
+                        </div>
+                    @endif
                 </div>
-                <p class="text-white text-center font-bold">Sonômetro B&K 2270</p>
-                <p class="text-white text-center font-bold">Sonômetro B&K 2270</p>
-                <p class="text-white text-center font-bold">Sonômetro B&K 2270</p>
-                <p class="text-white text-center font-bold mb-4">Sonômetro B&K 2270</p>
-                <p class="text-white text-center"><span class="font-bold">Ret:</span> 10/10/2010 15:30</p>
-                <p class="text-white text-center"><span class="font-bold">Dev:</span> 10/10/2010 17:30</p>
-                <div class="grid grid-cols-2 gap-2">
-                    <button class="bg-blue-500 p-2 rounded-xl text-white font-bold my-2">
-                        CONFIRMAR
-                    </button>
-                    <button class="bg-red-500 p-2 rounded-xl text-white font-bold my-2">
-                        CANCELAR
-                    </button>
-                </div>
-            </div>
-            <div class="bg-purple-400 rounded py-4 px-2">
-                <div class="flex flex-row items-center bg-white p-2 rounded mb-4">
-                    <img class="rounded-full w-16" src="{{ auth()->user()->avatar }}" alt="" referrerpolicy="no-referrer">
-                    <p class="grow text-center text-black font-bold">Giuliano Arnhold</p>
-                </div>
-                <p class="text-white text-center font-bold">Sonômetro B&K 2270</p>
-                <p class="text-white text-center font-bold">Sonômetro B&K 2270</p>
-                <p class="text-white text-center font-bold">Sonômetro B&K 2270</p>
-                <p class="text-white text-center font-bold mb-4">Sonômetro B&K 2270</p>
-                <p class="text-white text-center"><span class="font-bold">Ret:</span> 10/10/2010 15:30</p>
-                <p class="text-white text-center"><span class="font-bold">Dev:</span> 10/10/2010 17:30</p>
-                <div class="grid">
-                    <button class="bg-red-500 p-2 rounded-xl text-white font-bold my-2">
-                        CANCELAR
-                    </button>
-                </div>
-            </div>
-            <div class="bg-purple-400 rounded py-4 px-2">
-                <div class="flex flex-row items-center bg-white p-2 rounded mb-4">
-                    <img class="rounded-full w-16" src="{{ auth()->user()->avatar }}" alt="" referrerpolicy="no-referrer">
-                    <p class="grow text-center text-black font-bold">Giuliano Arnhold</p>
-                </div>
-                <p class="text-white text-center font-bold">Sonômetro B&K 2270</p>
-                <p class="text-white text-center font-bold">Sonômetro B&K 2270</p>
-                <p class="text-white text-center font-bold">Sonômetro B&K 2270</p>
-                <p class="text-white text-center font-bold mb-4">Sonômetro B&K 2270</p>
-                <p class="text-white text-center"><span class="font-bold">Ret:</span> 10/10/2010 15:30</p>
-                <p class="text-white text-center"><span class="font-bold">Dev:</span> 10/10/2010 17:30</p>
-                <div class="grid">
-                    <button class="bg-red-500 p-2 rounded-xl text-white font-bold my-2">
-                        CANCELAR
-                    </button>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
