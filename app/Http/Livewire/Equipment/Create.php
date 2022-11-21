@@ -23,7 +23,16 @@ class Create extends Component
     {
         $this->equipment['useful_links'] = $this->formatUsefulLinks();
 
-        Equipment::create($this->equipment);
+        $equipment = Equipment::create($this->equipment);
+
+        if (isset($this->equipment['image'])) {
+            $path = $this->equipment['image']->store(
+                'equipments',
+                'public'
+            );
+
+            $equipment->update(['image' => $path]);
+        }
 
         return redirect()->route('equipment.index');
     }

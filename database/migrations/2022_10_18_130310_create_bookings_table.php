@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->softDeletes();
             $table->foreignId('user_id');
             $table->foreignId('room_id')->nullable();
             $table->timestamp('start_date');

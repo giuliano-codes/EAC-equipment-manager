@@ -40,11 +40,11 @@
             </div>
             <div>
                 <label class="font-semibold">Horário de retirada</label>
-                <input class="w-full rounded-xl" type="datetime-local" wire:model="form.start_date">
+                <input class="w-full rounded-xl" type="datetime-local" wire:model="form.start_date" required>
             </div>
             <div>
                 <label class="font-semibold">Horário de Devolução</label>
-                <input class="w-full rounded-xl" type="datetime-local" wire:model="form.end_date">
+                <input class="w-full rounded-xl" type="datetime-local" wire:model="form.end_date" required>
             </div>
         </div>
         <div class="grid mb-3">

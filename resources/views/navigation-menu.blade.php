@@ -18,9 +18,11 @@
                     <x-jet-nav-link href="{{ route('equipment.index') }}" :active="request()->routeIs('equipment.index')">
                         {{ __('Acervo') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin')">
-                        {{ __('Admin') }}
-                    </x-jet-nav-link>
+                    @can('administrate')
+                        <x-jet-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin')">
+                            {{ __('Admin') }}
+                        </x-jet-nav-link>
+                    @endcan
                 </div>
             </div>
 
@@ -149,9 +151,11 @@
             <x-jet-responsive-nav-link href="{{ route('equipment.index') }}" :active="request()->routeIs('equipment.index')">
                 {{ __('Acervo') }}
             </x-jet-responsive-nav-link>
-            <x-jet-responsive-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin')">
-                {{ __('Admin') }}
-            </x-jet-responsive-nav-link>
+            @can('administrate')
+                <x-jet-responsive-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin')">
+                    {{ __('Admin') }}
+                </x-jet-responsive-nav-link>
+            @endcan
         </div>
 
         <!-- Responsive Settings Options -->

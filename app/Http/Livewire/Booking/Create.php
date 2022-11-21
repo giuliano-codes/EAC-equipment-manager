@@ -66,14 +66,14 @@ class Create extends Component
         } else {
             $booking = Booking::create([
                 'user_id' => auth()->user()->id,
-                'room_id' => $this->form['room'],
+                'room_id' => !empty($this->form['room']) ? $this->form['room'] : null,
                 'start_date' => $this->form['start_date'],
                 'end_date' => $this->form['end_date'],
                 'status' => 'processing'
             ]);
     
             $booking->equipments()->attach($equipamentsIds);
-            $booking->update(['status' => 'pending']);
+            $booking->update(['status' => 'waiting_confirmation']);
     
             redirect()->route('booking.show', ['booking' => $booking]);
         }

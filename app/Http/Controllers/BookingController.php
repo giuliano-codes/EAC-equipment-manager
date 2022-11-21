@@ -79,6 +79,12 @@ class BookingController extends Controller
      * @param  \App\Models\Booking  $booking
      * @return \Illuminate\Http\Response
      */
+
+     public function delete(Booking $booking)
+     {
+        return view('booking.delete', ['booking' => $booking]);
+     }
+
     public function destroy(Booking $booking)
     {
         //

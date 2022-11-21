@@ -41,7 +41,11 @@ class RoomPolicy
      */
     public function create(User $user)
     {
-        //
+        if (($user->currentTeam->name == "Admin") && ($user->currentTeam->personal_team == false)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**

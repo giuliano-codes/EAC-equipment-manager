@@ -38,7 +38,7 @@ Route::middleware([
 ])->group(function () {
     Route::get('/admin', function () {
         return view('admin');
-    })->name('admin');
+    })->name('admin')->can('administrate');
     Route::get('/home', function () {
         return view('home');
     })->name('home');
@@ -53,6 +53,7 @@ Route::middleware([
     Route::get('/booking', 'index')->name('booking.index');
     Route::get('/booking/create', 'create')->name('booking.create');
     Route::get('/booking/{booking}/', 'show')->name('booking.show');
+    Route::get('/booking/{booking}/delete', 'delete')->name('booking.delete')->can('delete', 'booking');
 });
 
 Route::middleware([

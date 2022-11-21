@@ -37,10 +37,10 @@
                                         {{ $booking['user']['name'] }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        {{ $booking['start_date'] }}
+                                        {{ $booking['start_date']->format('d/m/Y H:i') }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        {{ $booking['end_date'] }}
+                                        {{ $booking['end_date']->format('d/m/Y H:i') }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                         @if($booking['room'])
@@ -53,11 +53,16 @@
                                         @endforeach
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        <a href="" class="text-blue-500">Ver</a>
+                                        <a href="{{ route('booking.show', ['booking' => $booking]) }}" class="text-blue-500">Ver</a>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        <a href="" class="text-yellow-500">Editar</a>
-                                    </td>
+                                    @can('delete', $booking)
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            <a href="{{ route('booking.delete', ['booking' => $booking]) }}" class="text-red-500">Deletar</a>
+                                        </td>
+                                    @else
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        </td>
+                                    @endcan
                                 </tr>
                             @endforeach
                         </tbody>
