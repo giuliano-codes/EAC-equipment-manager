@@ -5,7 +5,7 @@
     <form wire:submit.prevent="validateUser">
         <div class="grid grid-cols-2 gap-2 mb-4">
             <div>
-                <label class="font-semibold">Tipo de Usuário</label>
+                <label class="font-semibold">Tipo de Usuário*</label>
                 <select class="w-full rounded-xl" wire:model.defer="form.user_type" required>
                     <option value="">Selecione o tipo de Usuário</option>
                     <option value="student">Discente</option>
@@ -13,7 +13,7 @@
                 </select>
             </div>
             <div>
-                <label class="font-semibold">Matrícula</label>
+                <label class="font-semibold">Matrícula*</label>
                 <input class="w-full rounded-xl" type="text" wire:model.defer="form.registration_number" required>
             </div>
         </div>
@@ -23,17 +23,17 @@
                 <input class="w-full rounded-xl" type="email" wire:model.defer="form.alternative_email">
             </div>
             <div>
-                <label class="font-semibold">CPF</label>
+                <label class="font-semibold">CPF*</label>
                 <input x-mask="999.999.999-99" class="w-full rounded-xl" type="text" wire:model.defer="form.cpf" required>
             </div>
             <div>
-                <label class="font-semibold">RG</label>
+                <label class="font-semibold">RG*</label>
                 <input class="w-full rounded-xl" type="text" wire:model.defer="form.rg" required>
             </div>
         </div>
         <div class="grid grid-cols-2 gap-2 mb-4">
             <div>
-                <label class="font-semibold">Telefone 1</label>
+                <label class="font-semibold">Telefone 1*</label>
                 <input x-mask="(99) 99999-9999" class="w-full rounded-xl" type="text" wire:model.defer="form.first_phone" required>
                 @error('form.first_phone')
                     <p class="text-red-500">O campo em questão apresenta algum erro.</p>
@@ -49,12 +49,16 @@
                 <label class="font-semibold">Professor Orientador</label>
                 <select class="w-full rounded-xl" wire:model.defer="form.professor_adviser">
                     <option value="">Selecione o professor Orientador</option>
-                    <option value="will">William</option>
+                    <option value="will">Christian</option>
+                    <option value="will">Eric</option>
+                    <option value="will">Paulo</option>
+                    <option value="will">Roberto</option>
                     <option value="vivi">Viviane</option>
+                    <option value="will">William</option>
                 </select>
             </div>
             <div>
-                <label class="font-semibold">Curso</label>
+                <label class="font-semibold">Curso*</label>
                 <input class="w-full rounded-xl" type="text" wire:model.defer="form.course" required>
             </div>
         </div>
@@ -64,7 +68,7 @@
                 <input class="w-full rounded-xl" type="text" wire:model.defer="form.project_research_area">
             </div>
             <div>
-                <label class="font-semibold">Possui Bolsa</label>
+                <label class="font-semibold">Possui Bolsa*</label>
                 <select class="w-full rounded-xl" wire:model.defer="form.scholarship" required>
                     <option>Selecione a opção</option>
                     <option value="yes">Sim</option>

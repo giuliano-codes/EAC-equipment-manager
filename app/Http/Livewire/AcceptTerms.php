@@ -7,7 +7,9 @@ use Livewire\Component;
 
 class AcceptTerms extends Component
 {
-    public $form = [];
+    public $form = array(
+        'course' => 'Engenharia Acústica'
+    );
 
     protected $rules = [
         'form.first_phone' => ['required','regex:/^\([1-9]{2}\) (?:[2-8]|9[1-9])[0-9]{3}\-[0-9]{4}$/'],
