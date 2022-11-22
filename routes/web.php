@@ -27,6 +27,10 @@ Route::get('/', function () {
 Route::get('/auth/google/redirect', function () {
     return Socialite::driver('google')->redirect();
 })->name('google.login');
+
+Route::get('/terms-and-conditions', function () {
+    return view('terms-and-conditions');
+})->name('terms-and-conditions');
  
 Route::get('/auth/google/callback', GoogleLoginController::class);
 

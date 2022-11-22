@@ -79,7 +79,7 @@
         <div class="grid mb-4">
             <div>
                 <input type="checkbox" wire:model.defer="form.accept_terms_and_privacy_policy" required>
-                <label class="text-blue-500"><a href="" target="_blank" rel="noopener noreferrer" wire:model="form.accept_terms_and_privacy_policy">Estou de acordo com os termos e políticas de uso</a></label>
+                <label class="text-blue-500"><a href="{{ route('terms-and-conditions') }}" target="_blank" rel="noopener noreferrer" wire:model="form.accept_terms_and_privacy_policy">Estou de acordo com os termos e políticas de uso</a></label>
             </div>
         </div>
         <div class="grid">
