@@ -73,11 +73,7 @@ class TeamPolicy
      */
     public function addTeamMember(User $user, Team $team)
     {
-        if ($user->email == 'giuliano.arnhold@eac.ufsm.br') {
-            return true;
-        } else {
-            return false;
-        }
+        return true;
     }
 
     /**
