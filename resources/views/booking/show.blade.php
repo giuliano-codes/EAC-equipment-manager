@@ -12,15 +12,15 @@
                 </div>
                 <div class="grid grid-rows-2">
                     <p class="text-center font-bold">Data Criação</p>
-                    <p class="text-center">{{ $booking['created_at']->format('d/m/Y h:i') }}</p>
+                    <p class="text-center">{{ $booking['created_at']->format('d/m/Y H:i') }}</p>
                 </div>
                 <div class="grid grid-rows-2">
                     <p class="text-center font-bold">Data Início</p>
-                    <p class="text-center">{{ $booking['start_date']->format('d/m/Y h:i') }}</p>
+                    <p class="text-center">{{ $booking['start_date']->format('d/m/Y H:i') }}</p>
                 </div>
                 <div class="grid grid-rows-2">
                     <p class="text-center font-bold">Data Fim</p>
-                    <p class="text-center">{{ $booking['end_date']->format('d/m/Y h:i') }}</p>
+                    <p class="text-center">{{ $booking['end_date']->format('d/m/Y H:i') }}</p>
                 </div>
             </div>
             <div class="grid my-8">
