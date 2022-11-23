@@ -45,6 +45,22 @@ class Create extends Component
 
     public function validateBooking()
     {
+        $startDate = Carbon::parse($this->form['start_date'], 'UTC');
+        $endDate = Carbon::parse($this->form['end_date'], 'UTC');
+        $now = Carbon::now()->subHour(3);
+
+        if ($endDate <= $startDate) {
+            $errors[] = 'Data Final deve ser maior que a data inicial';
+        }
+
+        if ($startDate < $now) {
+            $errors[] = 'Data Inicial não pode estar no passasdo.';
+        }
+
+        if ($startDate->diffInDays($endDate) > 30) {
+            $errors[] = 'Duração máxima de uma reserva é de 30 dias.';
+        }
+
         $equipamentsIds = array();
 
         foreach ($this->selected_items as $item) {
