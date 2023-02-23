@@ -8,6 +8,7 @@ use Livewire\Component;
 class Index extends Component
 {
     public $bookings;
+    public $showOnlyTrased = false;
 
     public function render()
     {
@@ -24,5 +25,10 @@ class Index extends Component
         $bookings = Booking::orderBy('start_date')->get();
         
         return $bookings;
+    }
+
+    public function getAllBookingsTrashed()
+    {
+        $this->bookings = Booking::onlyTrashed()->orderBy('start_date')->get();
     }
 }

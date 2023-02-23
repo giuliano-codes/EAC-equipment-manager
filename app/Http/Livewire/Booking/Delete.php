@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Booking;
 
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
 class Delete extends Component
@@ -16,7 +17,7 @@ class Delete extends Component
     public function delete()
     {
         $this->booking->delete();
-
+        Log::info('Reserva '.$this->booking->id.' deletada por '.auth()->user()->email);
         return redirect()->route('home');
     }
 }

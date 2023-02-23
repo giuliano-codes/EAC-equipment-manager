@@ -52,20 +52,26 @@
                                             <br>
                                         @endforeach
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        <a href="{{ route('booking.show', ['booking' => $booking]) }}" class="text-blue-500">Ver</a>
-                                    </td>
-                                    @can('delete', $booking)
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            <a href="{{ route('booking.delete', ['booking' => $booking]) }}" class="text-red-500">Deletar</a>
+                                    @if($booking->trashed())
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" colspan="3">
+                                            <span class="text-red-500">Deletado</span>
                                         </td>
                                     @else
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            @if($booking['status'] == 'finished')
-                                                Finalizado
-                                            @endif
+                                            <a href="{{ route('booking.show', ['booking' => $booking]) }}" class="text-blue-500">Ver</a>
                                         </td>
-                                    @endcan
+                                        @can('delete', $booking)
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                <a href="{{ route('booking.delete', ['booking' => $booking]) }}" class="text-red-500">Deletar</a>
+                                            </td>
+                                        @else
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                @if($booking['status'] == 'finished')
+                                                    Finalizado
+                                                @endif
+                                            </td>
+                                        @endcan
+                                    @endif
                                 </tr>
                             @endforeach
                         </tbody>
@@ -74,4 +80,7 @@
             </div>
         </div>
     </div>
+    <button type="button" wire:click="getAllBookingsTrashed" class="bg-red-500 rounded p-2 text-white">
+        Mostrar Reservas Deletadas
+    </button>
 </div>

@@ -34,7 +34,8 @@ return [
     'google' => [
         'client_id' => '873143779133-7c58ft4jamotjqreh353pa8q4912cfhf.apps.googleusercontent.com',
         'client_secret' => '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',
-        'redirect' => 'https://acustica.app/auth/google/callback',
+        // 'redirect' => 'https://acustica.app/auth/google/callback',
+        'redirect' => 'http://localhost/auth/google/callback',
     ],
 
 ];
