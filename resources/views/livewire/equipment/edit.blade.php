@@ -6,43 +6,43 @@
         <div class="grid grid-cols-4 gap-2">
             <div>
                 <label class="font-semibold">Nome</label>
-                <input class="w-full rounded-xl" type="text" wire:model="form.name">
+                <input class="w-full rounded-xl" type="text" wire:model="form.name" required>
             </div>
             <div>
                 <label class="font-semibold">Modelo</label>
-                <input class="w-full rounded-xl" type="text" wire:model="form.model">
+                <input class="w-full rounded-xl" type="text" wire:model="form.model" required>
             </div>
             <div>
                 <label class="font-semibold">Número de Série</label>
-                <input class="w-full rounded-xl" type="text" wire:model="form.serie_number">
+                <input class="w-full rounded-xl" type="text" wire:model="form.serie_number" required>
             </div>
             <div>
                 <label class="font-semibold">Fabricante</label>
-                <input class="w-full rounded-xl" type="text" wire:model="form.manufacturer">
+                <input class="w-full rounded-xl" type="text" wire:model="form.manufacturer" required>
             </div>
         </div>
         <div class="grid grid-cols-3 gap-2">
             <div>
                 <label class="font-semibold">Código UFSM</label>
-                <input class="w-full rounded-xl" type="text" wire:model="form.ufsm_code">
+                <input class="w-full rounded-xl" type="text" wire:model="form.ufsm_code" required>
             </div>
             <div>
                 <label class="font-semibold">Código Laboratório</label>
-                <input class="w-full rounded-xl" type="text" wire:model="form.laboratory_code">
+                <input class="w-full rounded-xl" type="text" wire:model="form.laboratory_code" required>
             </div>
             <div>
                 <label class="font-semibold">Código NCM</label>
-                <input class="w-full rounded-xl" type="text" wire:model="form.ncm_code">
+                <input class="w-full rounded-xl" type="text" wire:model="form.ncm_code" required>
             </div>
         </div>
         <div class="grid grid-cols-2 gap-2">
             <div>
                 <label class="font-semibold">Armário</label>
-                <input class="w-full rounded-xl" type="text" wire:model="form.locker">
+                <input class="w-full rounded-xl" type="text" wire:model="form.locker" required>
             </div>
             <div>
                 <label class="font-semibold">Tipo</label>
-                <select class="w-full rounded-xl" wire:model="form.type">
+                <select class="w-full rounded-xl" wire:model="form.type" required>
                     <option value="">Selecione o Tipo</option>
                     <option value="physical">Físico</option>
                     <option value="software">Software</option>
@@ -52,21 +52,21 @@
         <div class="grid grid-cols-2 gap-2">
             <div>
                 <label class="font-semibold">Link para o Manual</label>
-                <input class="w-full rounded-xl" type="text" wire:model="form.manual_link">
+                <input class="w-full rounded-xl" type="text" wire:model="form.manual_link" required>
             </div>
             <div>
                 <label class="font-semibold">Recursos</label>
-                <input class="w-full rounded-xl" type="text" wire:model="form.resources">
+                <input class="w-full rounded-xl" type="text" wire:model="form.resources" required>
             </div>
         </div>
         <div class="grid grid-cols-2 gap-2">
             <div>
                 <label class="font-semibold">Informações Complementares</label>
-                <textarea class="w-full rounded-xl" rows="3" wire:model="form.additional_information"></textarea>
+                <textarea class="w-full rounded-xl" rows="3" wire:model="form.additional_information" required></textarea>
             </div>
             <div>
                 <label class="font-semibold">Observações</label>
-                <textarea class="w-full rounded-xl" rows="3" wire:model="form.observation"></textarea>
+                <textarea class="w-full rounded-xl" rows="3" wire:model="form.observation" required></textarea>
             </div>
         </div>
         <div>

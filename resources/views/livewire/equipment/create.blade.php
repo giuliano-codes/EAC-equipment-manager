@@ -5,44 +5,45 @@
     <form wire:submit.prevent="validateEquipment">
         <div class="grid grid-cols-4 gap-2">
             <div>
-                <label class="font-semibold">Nome</label>
-                <input class="w-full rounded-xl" type="text" wire:model="equipment.name">
+                <label class="font-semibold">Nome*</label>
+                <input class="w-full rounded-xl" type="text" wire:model="equipment.name" required>
             </div>
             <div>
-                <label class="font-semibold">Modelo</label>
-                <input class="w-full rounded-xl" type="text" wire:model="equipment.model">
+                <label class="font-semibold">Modelo*</label>
+                <input class="w-full rounded-xl" type="text" wire:model="equipment.model" required>
             </div>
             <div>
-                <label class="font-semibold">Número de Série</label>
-                <input class="w-full rounded-xl" type="text" wire:model="equipment.serie_number">
+                <label class="font-semibold">Número de Série*</label>
+                <input class="w-full rounded-xl" type="text" wire:model="equipment.serie_number" required>
             </div>
             <div>
-                <label class="font-semibold">Fabricante</label>
-                <input class="w-full rounded-xl" type="text" wire:model="equipment.manufacturer">
+                <label class="font-semibold">Fabricante*</label>
+                <input class="w-full rounded-xl" type="text" wire:model="equipment.manufacturer" required>
             </div>
         </div>
         <div class="grid grid-cols-3 gap-2">
             <div>
-                <label class="font-semibold">Código UFSM</label>
-                <input class="w-full rounded-xl" type="text" wire:model="equipment.ufsm_code">
+                <label class="font-semibold">Código UFSM*</label>
+                <input class="w-full rounded-xl" type="text" wire:model="equipment.ufsm_code" required>
             </div>
             <div>
-                <label class="font-semibold">Código Laboratório</label>
-                <input class="w-full rounded-xl" type="text" wire:model="equipment.laboratory_code">
+                <label class="font-semibold">Código Laboratório*</label>
+                <input class="w-full rounded-xl" type="text" wire:model="equipment.laboratory_code" required>
             </div>
             <div>
-                <label class="font-semibold">Código NCM</label>
-                <input class="w-full rounded-xl" type="text" wire:model="equipment.ncm_code">
+                <label class="font-semibold">Código NCM*</label>
+                <input class="w-full rounded-xl" type="text" wire:model="equipment.ncm_code" required>
             </div>
         </div>
         <div class="grid grid-cols-2 gap-2">
             <div>
-                <label class="font-semibold">Armário</label>
-                <input class="w-full rounded-xl" type="text" wire:model="equipment.locker">
+                <label class="font-semibold">Armário*</label>
+                <input class="w-full rounded-xl" type="text" wire:model="equipment.locker" required>
             </div>
             <div>
-                <label class="font-semibold">Tipo</label>
-                <select class="w-full rounded-xl" wire:model="equipment.type">
+                <label class="font-semibold">Tipo*</label>
+                <select class="w-full rounded-xl" wire:model="equipment.type" required>
+                    <option value="">Selecione o tipo</option>
                     <option value="physical">Físico</option>
                     <option value="software">Software</option>
                 </select>
@@ -50,27 +51,27 @@
         </div>
         <div class="grid grid-cols-2 gap-2">
             <div>
-                <label class="font-semibold">Link para o Manual</label>
-                <input class="w-full rounded-xl" type="text" wire:model="equipment.manual_link">
+                <label class="font-semibold">Link para o Manual*</label>
+                <input class="w-full rounded-xl" type="text" wire:model="equipment.manual_link" required>
             </div>
             <div>
-                <label class="font-semibold">Recursos</label>
-                <input class="w-full rounded-xl" type="text" wire:model="equipment.resources">
+                <label class="font-semibold">Recursos*</label>
+                <input class="w-full rounded-xl" type="text" wire:model="equipment.resources" required>
             </div>
         </div>
         <div class="grid grid-cols-2 gap-2">
             <div>
-                <label class="font-semibold">Informações Complementares</label>
-                <textarea class="w-full rounded-xl" rows="3" wire:model="equipment.additional_information"></textarea>
+                <label class="font-semibold">Informações Complementares*</label>
+                <textarea class="w-full rounded-xl" rows="3" wire:model="equipment.additional_information" required></textarea>
             </div>
             <div>
-                <label class="font-semibold">Observações</label>
-                <textarea class="w-full rounded-xl" rows="3" wire:model="equipment.observation"></textarea>
+                <label class="font-semibold">Observações*</label>
+                <textarea class="w-full rounded-xl" rows="3" wire:model="equipment.observation" required></textarea>
             </div>
         </div>
         <div>
             <label class="font-semibold">Links Úteis</label>
-            <textarea class="w-full rounded-xl" rows="3" wire:model="equipment.useful_links"></textarea>
+            <textarea class="w-full rounded-xl" rows="3" wire:model="equipment.useful_links" placeholder="nome do link, http://urldolink.com"></textarea>
         </div>
         <div class="grid">
             <label id="upload-area" class="flex flex-col w-full h-32 border-4 border-dashed hover:bg-gray-100 hover:border-gray-300 cursor-pointer">

@@ -21,7 +21,7 @@ class Create extends Component
 
     public function validateEquipment()
     {
-        $this->equipment['useful_links'] = $this->formatUsefulLinks();
+        isset($this->equipment['useful_links']) ? $this->equipment['useful_links'] = $this->formatUsefulLinks() : $this->equipment['useful_links'] = '';
 
         $equipment = Equipment::create($this->equipment);
 
