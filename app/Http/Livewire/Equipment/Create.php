@@ -39,29 +39,32 @@ class Create extends Component
 
     public function importCSV()
     {
-        $handle = fopen($this->csvFile->getRealPath(), "r");
-        $csvData = array();
+        if ($this->csvFile) {
+            $handle = fopen($this->csvFile->getRealPath(), "r");
+            $csvData = array();
 
-        $header = fgetcsv($handle, 0, ",");
+            $header = fgetcsv($handle, 0, ",");
 
-        while (($line = fgetcsv($handle, 0, ",")) !== false) {
-			Equipment::create([
-                'name' => $line[0],
-                'model' => $line[1],
-                'serie_number' => $line[2],
-                'manufacturer' => $line[7],
-                'ufsm_code' => $line[3],
-                'laboratory_code' => $line[4],
-                'ncm_code' => $line[6],
-                'locker' => $line[5],
-                'manual_link' => $line[8],
-                'resources' => $line[10],
-                'additional_information' => $line[9],
-                'observation' => $line[11],
-            ]);
-		}
+            while (($line = fgetcsv($handle, 0, ",")) !== false) {
+                Equipment::create([
+                    'name' => $line[0],
+                    'model' => $line[1],
+                    'serie_number' => $line[2],
+                    'manufacturer' => $line[7],
+                    'ufsm_code' => $line[3],
+                    'laboratory_code' => $line[4],
+                    'ncm_code' => $line[6],
+                    'locker' => $line[5],
+                    'manual_link' => $line[8],
+                    'resources' => $line[10],
+                    'additional_information' => $line[9],
+                    'observation' => $line[11],
+                ]);
+            }
 
-        return redirect()->route('equipment.index');
+            return redirect()->route('equipment.index');
+        }
+        
     }
 
     private function formatUsefulLinks()
