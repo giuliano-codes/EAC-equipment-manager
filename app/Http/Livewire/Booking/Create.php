@@ -7,6 +7,7 @@ use App\Models\Equipment;
 use App\Models\Room;
 use Carbon\Carbon;
 use Livewire\Component;
+use Illuminate\Support\Facades\Log;
 
 class Create extends Component
 {
