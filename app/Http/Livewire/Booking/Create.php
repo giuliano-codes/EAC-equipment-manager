@@ -119,6 +119,7 @@ class Create extends Component
         $bookings = $equipment->bookings;
 
         foreach ($bookings as $booking) {
+            Log::info('RESERVAS COM ITEM, BOOKING ID = '.$booking['id'].' BOOKING START DATE = '.$booking->start_date. 'BOOKING END DATE = '.$booking->end_date);
             if ($startDate < $booking->start_date && $endDate > $booking->start_date && $booking->status != 'finished') {
                 return false;
             } elseif ($startDate >= $booking->start_date && $endDate <= $booking->end_date && $booking->status != 'finished') {
