@@ -65,6 +65,7 @@ class Create extends Component
         $equipamentsIds = array();
 
         foreach ($this->selected_items as $item) {
+            Log::info('Verifica equipamento é disponivel, ID = '.$this->checkIfEquipmentisAvailable($item['id'], $this->form['start_date'], $this->form['end_date']).' ID item = '.$item['id']. 'data inicio = '.$this->form['start_date']. 'data fim = '.$this->form['end_date']);
             if ($this->checkIfEquipmentisAvailable($item['id'], $this->form['start_date'], $this->form['end_date'])) {
                 $equipamentsIds[] = $item['id'];
             } else {
