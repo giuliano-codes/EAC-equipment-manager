@@ -128,8 +128,6 @@ class Create extends Component
                 return false;
             } elseif ($startDate < $booking->start_date && $endDate > $booking->end_date && $booking->status != 'finished') {
                 return false;
-            } else {
-                return true;
             }
         }
 
