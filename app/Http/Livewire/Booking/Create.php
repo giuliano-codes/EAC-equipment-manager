@@ -110,6 +110,8 @@ class Create extends Component
         $startDate = Carbon::parse($startDate, 'UTC');
         $endDate = Carbon::parse($endDate, 'UTC');
 
+        Log::info('Verifica equipamento, ID = '.$equipmentId.' data de início = '.$startDate. 'data fim = '.$endDate);
+
         $equipment = Equipment::find($equipmentId);
 
         $bookings = $equipment->bookings;
